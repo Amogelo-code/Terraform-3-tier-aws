@@ -16,30 +16,14 @@ The project also incorporates security, encryption, secrets management, monitori
 
 ## Architecture
 
-The architecture separates the infrastructure into three tiers. Internet traffic enters the VPC through an Internet Gateway and reaches the publicly accessible Application Load Balancer. The ALB distributes requests to healthy EC2 instances in the private application subnets, which communicate with the private RDS database tier.
+Internet traffic enters the VPC through an Internet Gateway and reaches the publicly accessible Application Load Balancer. The ALB distributes requests to healthy EC2 instances in the private application subnets, which communicate with the private RDS database tier.
 
 The Application Load Balancer acts as the public entry point to the application. Application instances are placed in private subnets and receive traffic through the ALB rather than directly from the internet.
 
 The database is isolated in private database subnets and only accepts traffic from the application tier.
 
-## AWS Services
+# Project Structure
 
-- Amazon VPC
-- Internet Gateway
-- NAT Gateway
-- Application Load Balancer
-- EC2
-- Auto Scaling Groups
-- Amazon RDS
-- IAM
-- AWS KMS
-- AWS Secrets Manager
-- Amazon CloudWatch
-- AWS Systems Manager Session Manager
-
-## Project Structure
-
-```text
 terraform-3-tier/
 │
 ├── main.tf
