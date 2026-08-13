@@ -16,23 +16,7 @@ The project also incorporates security, encryption, secrets management, monitori
 
 ## Architecture
 
-The architecture follows this general traffic flow:
-
-Internet
-   |
-   v
-Internet Gateway
-   |
-   v
-Application Load Balancer
-   |
-   v
-Private Application Tier
-(EC2 instances managed by ASG)
-   |
-   v
-Private Database Tier
-(Amazon RDS)
+The architecture separates the infrastructure into three tiers. Internet traffic enters the VPC through an Internet Gateway and reaches the publicly accessible Application Load Balancer. The ALB distributes requests to healthy EC2 instances in the private application subnets, which communicate with the private RDS database tier.
 
 The Application Load Balancer acts as the public entry point to the application. Application instances are placed in private subnets and receive traffic through the ALB rather than directly from the internet.
 
