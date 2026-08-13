@@ -1,0 +1,20 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Terraform variable files
+*.tfvars
+*.tfvars.json
+
+# IDE
+.idea/
+
+# Sensitive/local files
+*.pem
+*.key
+.env
+.env.*
+
+# macOS
+.DS_Store
